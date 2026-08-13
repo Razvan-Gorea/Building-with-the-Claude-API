@@ -13,8 +13,8 @@
     - Embedding: each token generates an embedding (a list of numbers representing meaning)
     - Contextualization: each embedding gets adjusted to those around it (adds context and refinement for every token)
     - Generation: final embeddings are sent to an output layer, probability + some randomness used to generate output
-4. API sends output of the model back to your server
-5. Client renders the model
+4. API sends output of the model back to your server, then client
+5. Client renders the response
 
 ## Multi-Turn Conversations
 
@@ -39,6 +39,6 @@ Claude doesn't have memory, you need to create and store a list of messages that
 
 ## Useful Links
 
-[Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
-[Create a Message](https://platform.claude.com/docs/en/api/python/messages/create)
-[API Overview](https://platform.claude.com/docs/en/api/overview)
+- [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
+- [Create a Message](https://platform.claude.com/docs/en/api/python/messages/create)
+- [API Overview](https://platform.claude.com/docs/en/api/overview)
