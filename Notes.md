@@ -37,6 +37,71 @@ Claude doesn't have memory, you need to create and store a list of messages that
 4. Feed through a grader (get score for every question in eval dataset then average)
 5. The averaged score is your prompt score, use it to determine if your prompt needs to be improved
 
+## Graders:
+
+- Code:
+    - Programmatically evaluate the result
+    - Useful for:
+        - Checking output length
+        - Readability
+        - Syntax evaluation
+        - Containing certain words
+
+- Model:
+    - Ask a model to assign a score to the output or compare two versions
+    - Useful for:
+        - Response quality
+        - Helpfulness
+        - Safety
+        - Completeness
+        - Quality of instruction following
+
+- Human:
+    - Ask a human to assign a score to the output or compare two versions
+    
+
+## Prompt Engineering
+
+1. Set a goal
+2. Write an initial prompt
+3. Eval the prompt
+4. Apply a prompt engineering technique
+5. Re-eval to verify better performance
+6. Repeat steps 4 to 5 until desired performance is achieved
+
+## Prompt Engineering techniques:
+
+- Be clear and direct:
+    - Clear:
+        - Use simple language
+        - State what you want explicitly
+        - Lead your prompt with a simple statement of the model's task
+    - Direct:
+        - Use instructions, not questions
+        - Use direct action verbs
+- Be specific:
+    - List out guidelines:
+        - List qualities that the output should have
+        - Provide steps the model should follow
+
+    - Use qualities for output on every prompt
+    - Use steps when you want claude to take a specific path of critical thinking, decision making or to consider a wider view
+    - If possible try to combine both approaches (qualities & steps)
+
+- Providing structure:
+    - XML tags to separate distinct portions of the prompt (useful when including lots of content)
+
+- Provide Examples:
+    - Give Claude sample input/output pairs:
+        - Useful for edge cases or complex output formats
+        - "One-Shot": provide a single example
+        - "Multi-Shot": provide multiple examples
+        - Recommended combining with XML tags for structure!
+        - Explain why your example outputs are considered ideal
+        - Keep examples relevant to your specific task
+        - Include examples that address your most common failure cases
+
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
