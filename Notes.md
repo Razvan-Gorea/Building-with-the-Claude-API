@@ -189,9 +189,54 @@ Claude doesn't have memory, you need to create and store a list of messages that
 7. **Receive Claude's final natural-language response**
    Claude incorporates the tool result into a coherent answer for the user, completing the tool use workflow.
 
+## Retrieval Augumented Generation
+
+- Option 1: Give all the extracted text to claude
+    - Pro: Straightforward approach
+    - Con: Costs more to process, takes longer to process
+
+- Option 2: Break documents into chunks, only give the most relevant chunks to claude with the users prompt
+    - Pro: Scales well up to large documents, runs faster and costs less, works well with multiple documents
+    - Con: Requires preprocessing step to chunk documents. Needs a search mechanism to find relevant chunks
+
+## Chunking Strategies
+
+- Structure-based: Best results when you control document formatting (like internal company reports)
+- Sentence-based: Good middle ground for most text documents
+- Size-based: Most reliable fallback that works with any content type, including code
+
+## The Full RAG Flow
+
+1. Chunk source text
+2. Generate embeddings (using an embedding model), then normalize
+3. Store embeddings in a vector database e.g Pinecone, pgvector store
+4. Embed the user's query with the same embedding model and normalize
+5. Send the query (embedding form) to the vector database
+6. Find similar embeddings to the user query using cosine similarity for example
+7. Take the user query plus most relevant text chunk and send it to claude for a response
+
+## Cosine Similarity
+
+Key points about cosine similarity:
+    
+    - Results range from -1 to 1
+    - Values close to 1 mean high similarity
+    - Values close to -1 mean very different
+    - 0 means perpendicular (no relationship)
+
+## Cosine Distance
+
+Key points about cosine distance:
+
+    - Calculated as 1 - cosine similarity
+    - Same direction, 0.0
+    - If perpendicular, 1.0
+    - If complete opposite, 2.0
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
 - [Create a Message](https://platform.claude.com/docs/en/api/python/messages/create)
 - [API Overview](https://platform.claude.com/docs/en/api/overview)
 - [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
+- [VoyageAI](https://www.voyageai.com/)
