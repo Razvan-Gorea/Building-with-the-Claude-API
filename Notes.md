@@ -244,6 +244,17 @@ Key points about cosine distance:
     1. `thinking` - a boolean used to enable or disable extended thinking
     2. `thinking_budget` - a number used to tell claude how many tokens it's allowed to used for extended thinking
 
+## Image Handling
+
+- Up to 100 images per request
+- Max size of 5mb for Claude API
+- Max dimensions 8000x8000 px
+- Multiple images, max dimensions drops to 2000x2000 px
+- Each image counts as a certain amount of tokens
+- IMPORTANT: you need to use prompting techniques to ensure accurate responses with images
+    - E.g one shot or few shot
+    - Clear direct instructions
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
@@ -251,3 +262,4 @@ Key points about cosine distance:
 - [API Overview](https://platform.claude.com/docs/en/api/overview)
 - [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
 - [VoyageAI](https://www.voyageai.com/)
+- [Vision](https://platform.claude.com/docs/en/build-with-claude/vision)
