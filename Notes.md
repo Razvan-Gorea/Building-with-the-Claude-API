@@ -233,6 +233,17 @@ Key points about cosine distance:
     - If perpendicular, 1.0
     - If complete opposite, 2.0
 
+## Extended Thinking
+
+- Gives Claude better reasoning capabilities
+- More costly as you are charged for every token in thinking phase
+- Increased latency
+- Use evals to determine when to use extended thinking
+
+- Two necessary params:
+    1. `thinking` - a boolean used to enable or disable extended thinking
+    2. `thinking_budget` - a number used to tell claude how many tokens it's allowed to used for extended thinking
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
