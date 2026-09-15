@@ -255,6 +255,15 @@ Key points about cosine distance:
     - E.g one shot or few shot
     - Clear direct instructions
 
+# Prompt Caching
+
+- Speeds up latency and reduces costs of generation
+- Based off work completed for previous requests and that isn't discarded after
+- The cache acts as a lookup table for already completed prior requests
+- Cache duration only lasts 1 hour
+- Really only effective when using the same content frequently
+- Requires a minimum of at least 1024 tokens long to be cached (sum of all message/blocks you're trying to cache)
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
