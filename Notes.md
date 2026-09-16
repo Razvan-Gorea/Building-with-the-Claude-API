@@ -244,6 +244,8 @@ Key points about cosine distance:
     1. `thinking` - a boolean used to enable or disable extended thinking
     2. `thinking_budget` - a number used to tell claude how many tokens it's allowed to used for extended thinking
 
+- When using extended thinking you get both the reasoning process and final response back from claude
+
 ## Image Handling
 
 - Up to 100 images per request
@@ -264,6 +266,21 @@ Key points about cosine distance:
 - Really only effective when using the same content frequently
 - Requires a minimum of at least 1024 tokens long to be cached (sum of all message/blocks you're trying to cache)
 
+# Files API
+
+- Allows you to upload files to claude for later use
+- Creates a file object, use the file `id` attribute to later reference the file
+
+# Model Context Protocol
+
+- Protocol that allows LLMs and agents to gain access to resources, tools and prompts from different servers
+- Requires a MCP client and a MCP server, MCP client runs on your server
+- Solves the problem where developers had to write, maintain and test their own custom connectors for their AI applications
+- Shifts burden (function implementations, schemas) onto MCP server providers
+- MCP is transport agnostic (can uses many different protocols)
+
+![MCP Complete Flow Example](MCP_FLOW.jpg)
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
@@ -272,3 +289,5 @@ Key points about cosine distance:
 - [Tool use with Claude](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview)
 - [VoyageAI](https://www.voyageai.com/)
 - [Vision](https://platform.claude.com/docs/en/build-with-claude/vision)
+- [Prompt Caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
+- [Files API](https://platform.claude.com/docs/en/build-with-claude/files)
