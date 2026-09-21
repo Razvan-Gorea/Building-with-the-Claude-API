@@ -281,6 +281,23 @@ Key points about cosine distance:
 
 ![MCP Complete Flow Example](MCP_FLOW.jpg)
 
+# Defining MCP Resources
+
+- Use `mcp.resource` decorator
+- You need to define a URI for your resource
+- Afterwards you define the function implementation to access your resource
+- There are two types of resources:
+    - Direct URI: URI with no params
+    - Templated Response: URI with one or more params
+
+- Resources can return any type of data - strings, JSON, binary, etc. 
+- The mime_type parameter gives clients a hint about what kind of data you're returning:
+    - application/json - Structured JSON data
+    - text/plain - Plain text content
+    - Any other valid MIME type for different data formats
+
+- The MCP Python SDK automatically serializes your return values. You don't need to manually convert to JSON strings.
+
 ## Useful Links
 
 - [Claude Python SDK](https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/python)
@@ -291,3 +308,4 @@ Key points about cosine distance:
 - [Vision](https://platform.claude.com/docs/en/build-with-claude/vision)
 - [Prompt Caching](https://platform.claude.com/docs/en/build-with-claude/prompt-caching)
 - [Files API](https://platform.claude.com/docs/en/build-with-claude/files)
+- [Model Context Protocol](https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro)
